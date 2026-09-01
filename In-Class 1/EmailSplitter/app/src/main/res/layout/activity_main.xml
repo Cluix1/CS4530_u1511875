@@ -8,63 +8,18 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/emailInput"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/inputFragmentContainer"
+        android:name="com.example.emailsplitter.InputFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="user@utah.edu"
-        android:hint="Enter email" />
+        tools:layout="@layout/fragment_input" />
 
-    <Button
-        android:id="@+id/button"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/resultFragmentContainer"
+        android:name="com.example.emailsplitter.ResultFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Split Email" />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="1"
-        android:layout_marginTop="16dp">
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:padding="3dip"
-                android:text="UserID:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/userView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:padding="3dip" />
-
-        </TableRow>
-
-        <TableRow>
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:padding="3dip"
-                android:text="Domain:"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/domainView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:padding="3dip" />
-
-        </TableRow>
-
-    </TableLayout>
+        tools:layout="@layout/fragment_result" />
 
 </LinearLayout>

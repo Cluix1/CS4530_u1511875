@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">EmailSplitter</string>
+    <string name="email_hint">Enter email</string>
+    <string name="split_email">Split Email</string>
+    <string name="user_id_label">UserID:</string>
+    <string name="domain_label">Domain:</string>
+    <string name="invalid_email">Invalid email!</string>
+    <string name="data_passed">Data passed successfully!</string>
 </resources>
