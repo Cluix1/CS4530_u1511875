@@ -13,7 +13,14 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
 
-    /** Inflates the destination layout using View Binding. */
+    /**
+     * Inflates the destination layout using View Binding.
+     *
+     * @param inflater Inflater used to create the fragment's views.
+     * @param container Parent used for layout parameters; the view is not attached here.
+     * @param savedInstanceState Previous fragment state, or null on first creation.
+     * @return The root view containing the five destination buttons.
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,7 +30,12 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
-    /** Configures the buttons once the fragment view is available. */
+    /**
+     * Configures the buttons once the fragment view is available.
+     *
+     * @param view The root view returned by onCreateView.
+     * @param savedInstanceState Previous fragment state, or null on first creation.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureButtons()
