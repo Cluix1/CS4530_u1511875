@@ -8,10 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.buttonexplorer.databinding.FragmentFirstBinding
 
+/** Displays five destinations and forwards the selected button text to the host activity. */
 class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
 
+    /** Inflates the destination layout using View Binding. */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -21,13 +23,14 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
+    /** Configures the buttons once the fragment view is available. */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureButtons()
     }
 
+    /** Assigns navigation and confirmation feedback to each button without repeating setup code. */
     private fun configureButtons() {
-        // Share one listener pattern so every button passes its own displayed text.
         val buttons = listOf(
             binding.mountainsButton,
             binding.oceanButton,
@@ -48,9 +51,9 @@ class FirstFragment : Fragment() {
         }
     }
 
+    /** Releases the binding because the fragment may remain on the back stack without its view. */
     override fun onDestroyView() {
         super.onDestroyView()
-        // A fragment can outlive its view while it is on the back stack.
         _binding = null
     }
 }
