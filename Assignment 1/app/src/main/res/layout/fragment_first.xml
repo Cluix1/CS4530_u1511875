@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_destination"
+            android:textAppearance="?attr/textAppearanceHeadline4" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/choose_instruction"
+            android:textAppearance="?attr/textAppearanceBody1" />
+
+        <Button
+            android:id="@+id/mountains_button"
+            style="@style/DestinationButton"
+            android:text="@string/mountains" />
+
+        <Button
+            android:id="@+id/ocean_button"
+            style="@style/DestinationButton"
+            android:text="@string/ocean" />
+
+        <Button
+            android:id="@+id/forest_button"
+            style="@style/DestinationButton"
+            android:text="@string/forest" />
+
+        <Button
+            android:id="@+id/desert_button"
+            style="@style/DestinationButton"
+            android:text="@string/desert" />
+
+        <Button
+            android:id="@+id/city_button"
+            style="@style/DestinationButton"
+            android:text="@string/city" />
+    </LinearLayout>
+</ScrollView>

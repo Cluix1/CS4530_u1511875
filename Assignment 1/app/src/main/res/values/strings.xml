@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Button Explorer</string>
+    <string name="choose_destination">Choose a destination</string>
+    <string name="choose_instruction">Tap a button to see your choice on the next screen.</string>
+    <string name="mountains">Mountains</string>
+    <string name="ocean">Ocean</string>
+    <string name="forest">Forest</string>
+    <string name="desert">Desert</string>
+    <string name="city">City</string>
+    <string name="you_selected">You selected</string>
+    <string name="back_to_choices">Back to choices</string>
+    <string name="selection_confirmation">Selected %1$s</string>
+</resources>
