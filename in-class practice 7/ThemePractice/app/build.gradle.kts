@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.textconcatenator"
+    namespace = "com.example.themepractice"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.example.textconcatenator"
+        applicationId = "com.example.themepractice"
         minSdk = 24
         targetSdk = 37
         versionCode = 1
