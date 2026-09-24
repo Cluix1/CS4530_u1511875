@@ -54,6 +54,8 @@ On macOS/Linux, use `./gradlew` instead of `.\gradlew.bat` (run `chmod +x gradle
 
 Unit tests cover validation, editing, and deletion identity. Device tests cover add/detail/edit/delete, activity recreation, and list scrolling. You can also run either test class using its green gutter arrow in Android Studio.
 
+Verified on September 24, 2026: debug build succeeded, all four unit tests passed, and both device tests passed on the A1_Test Android 16 emulator. Lint completed with zero errors and five warnings (dependency update suggestions, backup configuration, and missing custom launcher icon).
+
 After any further changes, run the checks and `clean`, commit your source changes, and push to GitHub. Verify that GitHub shows the Assignment 2 folder on the branch you submit, then submit the repository link through your course's submission system. Build output and the machine-specific `local.properties` file are intentionally ignored.
 
 References: [Compose compiler setup](https://developer.android.com/develop/ui/compose/setup-compose-dependencies-and-compiler), [ViewModel state ownership](https://developer.android.com/develop/ui/compose/state-hoisting), and [LazyColumn](https://developer.android.com/develop/ui/compose/lists).
