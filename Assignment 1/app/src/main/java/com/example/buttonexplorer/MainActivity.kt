@@ -11,6 +11,7 @@ import com.example.buttonexplorer.databinding.ActivityMainBinding
  * Fragment transactions control which screen is displayed and allow back navigation.
  */
 class MainActivity : AppCompatActivity() {
+    
     /**
      * Initializes the host layout and adjusts its padding for the system bars.
      * Adds the choice screen only when there is no saved activity state to restore.
