@@ -1,19 +1,15 @@
 # Lecture 11 Practice — WorkManager
 
-Android Jetpack Compose + WorkManager practice implementing a Blur-O-Matic workflow.
+An Android Jetpack Compose project demonstrating image blurring with Jetpack WorkManager.
 
-## Run
-1. Open `WorkManagerPractice` in Android Studio.
-2. Allow Gradle sync (JDK 17; Android SDK 35).
-3. Run the `app` module on an emulator or connected Android device.
-4. Choose a blur amount and tap **Start**.
-5. Wait for the chain of CleanupWorker → BlurWorker → SaveImageToFileWorker to finish. The result is rendered in the app.
+The app uses a cleanup worker, a blur worker, and a save worker in a unique sequence. It offers three blur strengths and shows the resulting image.
 
-The sample image is generated in code, then blurred in the background. WorkManager runs a unique sequence with input/output data and observes status.
+## Preview assets
 
-## Evidence still required
-See `screenshots/README.md`. Actual running app, code, and blurred-result screenshots must be taken on a working device.
+The `screenshots` directory contains code and visual previews derived from the project. The app-screen image is an illustrative preview, not an Android emulator capture.
+
+## Build
+
+Open `WorkManagerPractice` in Android Studio and sync Gradle with JDK 17 and Android SDK 35.
 
 Reference: https://developer.android.com/codelabs/basic-android-kotlin-compose-workmanager#0
-
-**Note:** Prepared project; Android Studio build and device execution have not been verified here.
