@@ -4,21 +4,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import java.util.Locale
 
-/** Owns observable course data independently of recomposition and activity rotation. */
-class CourseViewModel : ViewModel() {
+/** Owns observable UI state and delegates durable changes to the repository. */
+class CourseViewModel(private val repository: CourseStore = InMemoryCourseStore()) : ViewModel() {
     var courses by mutableStateOf<List<Course>>(emptyList())
         private set
 
-    private var nextId = 1L
+    init {
+        viewModelScope.launch {
+            repository.courses.collect { courses = it }
+        }
+    }
 
-    /**
-     * Validates and saves a new course, or replaces the course with the given identifier.
-     *
-     * @param courseId Identifier to edit, or null to add a course.
-     * @return An error message for invalid input, or null after a successful save.
-     */
     fun saveCourse(
         department: String,
         number: String,
@@ -35,21 +36,26 @@ class CourseViewModel : ViewModel() {
         if (!cleanNumber.all { it in '0'..'9' }) {
             return "The course number must contain only digits."
         }
-        if (courseId != null && courses.none { it.id == courseId }) {
-            return "This course no longer exists."
-        }
+        val existing = courseId?.let { id -> courses.find { it.id == id } }
+        if (courseId != null && existing == null) return "This course no longer exists."
 
-        val course = Course(courseId ?: nextId++, cleanDepartment, cleanNumber, cleanLocation)
-        courses = if (courseId == null) {
-            courses + course
-        } else {
-            courses.map { if (it.id == courseId) course else it }
+        viewModelScope.launch {
+            repository.save(Course(courseId ?: 0L, cleanDepartment, cleanNumber, cleanLocation))
         }
         return null
     }
 
-    /** Removes only the selected course, even if multiple courses have the same name. */
     fun deleteCourse(courseId: Long) {
-        courses = courses.filterNot { it.id == courseId }
+        viewModelScope.launch { repository.delete(courseId) }
+    }
+
+    class Factory(private val repository: CourseRepository) : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(CourseViewModel::class.java)) {
+                return CourseViewModel(repository) as T
+            }
+            throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
+        }
     }
 }
