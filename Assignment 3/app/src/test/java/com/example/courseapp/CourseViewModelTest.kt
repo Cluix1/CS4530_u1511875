@@ -1,5 +1,12 @@
 package com.example.courseapp
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
+import org.junit.After
+import org.junit.Before
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertNotNull
@@ -8,7 +15,18 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /** Verifies validation and course identity independently of the UI. */
+@OptIn(ExperimentalCoroutinesApi::class)
 class CourseViewModelTest {
+    @Before
+    fun setMainDispatcher() {
+        Dispatchers.setMain(UnconfinedTestDispatcher())
+    }
+
+    @After
+    fun resetMainDispatcher() {
+        Dispatchers.resetMain()
+    }
+
     @Test
     fun addCourseTrimsFieldsAndNormalizesDepartment() {
         val viewModel = CourseViewModel()
