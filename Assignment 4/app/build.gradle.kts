@@ -40,6 +40,8 @@ dependencies {
     implementation("androidx.room:room-ktx:2.7.2")
     ksp("androidx.room:room-compiler:2.7.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    // Match the AndroidX Test runtime, as in Assignment 3.
+    implementation("androidx.concurrent:concurrent-futures:1.2.0")
     implementation("io.ktor:ktor-client-android:3.6.0")
     implementation("io.ktor:ktor-client-content-negotiation:3.6.0")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.6.0")
@@ -47,6 +49,7 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2026.02.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
     androidTestImplementation("io.ktor:ktor-client-mock:3.6.0")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
