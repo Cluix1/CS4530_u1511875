@@ -21,7 +21,7 @@ class FunFactViewModel(private val repository: FunFactRepository) : ViewModel() 
 
     val savedCount: Int get() = savedFacts.size
 
-    // Filter only the facts observed from Room. Typing never makes an API request.
+    // Search the saved facts without calling the API.
     val facts: List<FunFact>
         get() = savedFacts.filter { it.text.contains(searchQuery.trim(), ignoreCase = true) }
 
@@ -48,7 +48,7 @@ class FunFactViewModel(private val repository: FunFactRepository) : ViewModel() 
         viewModelScope.launch {
             try {
                 repository.fetchFact()
-                // Reveal the new fact even if the previous search would hide it.
+                // Clear the search so the new fact shows up.
                 searchQuery = ""
             } catch (e: CancellationException) {
                 throw e

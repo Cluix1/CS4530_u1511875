@@ -10,6 +10,6 @@ data class FunFact(
     val text: String
 )
 
-// The API response is separate so its fields do not interfere with Room's local ID.
+// Only read the fact text from the API. Room creates its own ID.
 @Serializable
 data class FunFactResponse(val text: String)

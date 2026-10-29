@@ -6,7 +6,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import kotlinx.coroutines.flow.Flow
 
-// The ViewModel uses this repository for both saved facts and network requests.
+// Fetch facts from the API and save them in Room.
 class FunFactRepository private constructor(
     private val dao: FunFactDao,
     private val client: HttpClient

@@ -40,7 +40,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.7.2")
     ksp("androidx.room:room-compiler:2.7.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
-    // Match the AndroidX Test runtime, as in Assignment 3.
+    // Use the same version for the app and tests.
     implementation("androidx.concurrent:concurrent-futures:1.2.0")
     implementation("io.ktor:ktor-client-android:3.6.0")
     implementation("io.ktor:ktor-client-content-negotiation:3.6.0")
