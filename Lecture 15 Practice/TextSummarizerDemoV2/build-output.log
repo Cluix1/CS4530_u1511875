@@ -29,3 +29,22 @@ C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\T
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
 Calculating task graph as no cached configuration is available for tasks: :app:assembleDebug
+WARNING: The following problems were found when resolving the SDK location:
+Where: sdk.dir property in local.properties file. Problem: Directory does not exist
+
+Add android.sync.suppressAgpWarnings=GENERIC to the gradle.properties file to suppress this warning.
+Configuration cache entry stored.
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if 1 EQU 0 goto mainEnd 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>rem the _cmd.exe /c_ return code! 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set EXIT_CODE=1 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if 1 EQU 0 set EXIT_CODE=1 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if not "" == "" exit 1 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>exit /b 1 
