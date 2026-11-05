@@ -5,9 +5,10 @@ plugins {
 
 // Read secrets from secrets.properties
 val secretsFile = rootProject.file("secrets.properties")
-val secretsMap = secretsFile.readLines()
+val secretsMap = if (secretsFile.exists()) secretsFile.readLines()
     .map { it.split("=") }
     .associate { it[0].trim() to it[1].trim() }
+else emptyMap()
 
 val apiKey = secretsMap["GEMINI_API_KEY"] ?: ""
 

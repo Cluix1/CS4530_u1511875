@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -46,14 +47,36 @@ class MyViewModel : ViewModel()
 
     private val summaryMutable = MutableStateFlow("")
     val summary = summaryMutable.asStateFlow()
+    private val isSummarizingMutable = MutableStateFlow(false)
+    val isSummarizing = isSummarizingMutable.asStateFlow()
 
     fun summarizeText(input: String) {
+        if (input.isBlank()) {
+            summaryMutable.value = "Enter some text before summarizing."
+            return
+        }
+
         viewModelScope.launch {
             try {
+                isSummarizingMutable.value = true
+                summaryMutable.value = ""
+                val model = GenerativeModel(
+                    modelName = "gemini-1.5-flash",
+                    apiKey = BuildConfig.GEMINI_API_KEY
+                )
+                val prompt = """
+                    Summarize the following text in 2–3 concise sentences. Preserve the most important details.
 
+                    Text:
+                    $input
+                """.trimIndent()
+                summaryMutable.value = model.generateContent(prompt).text
+                    ?: "The model did not return a summary."
             } catch (e: Exception) {
                 summaryMutable.value = "Error: ${e.message}"
                 Log.e("SummarizeError", e.toString())
+            } finally {
+                isSummarizingMutable.value = false
             }
         }
     }
@@ -77,6 +100,7 @@ class MainActivity : ComponentActivity() {
 fun SummarizerUI(myVM: MyViewModel) {
 
     val summary by myVM.summary.collectAsState()
+    val isSummarizing by myVM.isSummarizing.collectAsState()
     var inputText by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
@@ -95,9 +119,12 @@ fun SummarizerUI(myVM: MyViewModel) {
         Row {
             Button(onClick = {
                 myVM.summarizeText(inputText)
-                inputText=""
-            }) {
-                Text("Summarize")
+            }, enabled = !isSummarizing) {
+                if (isSummarizing) {
+                    CircularProgressIndicator()
+                } else {
+                    Text("Summarize")
+                }
             }
         }
 

@@ -1,0 +1,31 @@
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set DIRNAME=C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2\ 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if "C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2\" == "" set DIRNAME=. 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set APP_BASE_NAME=gradlew 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set APP_HOME=C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2\ 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>for %i in ("C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2\") do set APP_HOME=%~fi 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set APP_HOME=C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2\ 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set JAVA_EXE=java.exe 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>java.exe -version  1>NUL 2>&1 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>if 0 EQU 0 goto execute 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>set CLASSPATH= 
+
+C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2>"java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "" -jar "C:\Users\duck6\OneDrive\Desktop\4530 Stuff\CS4530_u1511875\Lecture 15 Practice\TextSummarizerDemoV2\\gradle\wrapper\gradle-wrapper.jar" :app:assembleDebug --console=plain --no-daemon 
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.5.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as no cached configuration is available for tasks: :app:assembleDebug
