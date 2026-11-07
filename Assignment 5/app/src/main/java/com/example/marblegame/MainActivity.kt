@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         val rotation = windowManager.defaultDisplay.rotation
-        viewModel.setSensorStatus(sensorRepository.start(rotation, viewModel::updateGravity))
+        viewModel.updateSensorStatus(sensorRepository.start(rotation, viewModel::updateGravity))
     }
 
     override fun onPause() {

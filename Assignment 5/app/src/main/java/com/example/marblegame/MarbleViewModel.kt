@@ -15,7 +15,7 @@ class MarbleViewModel : ViewModel() {
     var sensorStatus by mutableStateOf("Waiting for sensor")
         private set
 
-    fun setSensorStatus(status: String) {
+    fun updateSensorStatus(status: String) {
         sensorStatus = status
     }
 
